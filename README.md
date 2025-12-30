@@ -75,33 +75,6 @@ This mirrors **real internal enterprise assistants**, not demo bots.
 
 ---
 
-## 🧠 How Ask2Inbox Works (End-to-End)
-
-```
-
-Employee Login
-↓
-FastAPI (/login)
-↓
-Employee Authenticated (employee_id resolved)
-↓
-Chat Request (/chat)
-↓
-Agent Runner (agent.py)
-↓
-LangGraph State Machine
-├── Intent Detection
-├── Chat Node (LLM only)
-├── DB Node (SQL + LLM)
-├── Email Node (SMTP delivery)
-└── Leave Node (DB write)
-↓
-Single LLM Response
-├── Returned to Chat UI
-└── Sent to Email (if requested)
-
-```
-
 ## 🧱 Tech Stack
 
 ### Backend
