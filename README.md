@@ -125,46 +125,6 @@ Single LLM Response
 
 ---
 
-## 📁 Project Structure
-
-```
-
-Ask2Inbox/
-│
-├── main.py                  # FastAPI app
-├── agent.py                 # Agent runner
-├── graph.py                 # LangGraph state machine
-├── agent_state.py           # AgentState dataclass
-├── intent_detector.py       # Intent classification
-│
-├── database.py              # SQLAlchemy engine/session
-├── models.py                # Employee-related models
-├── services/
-│   ├── employee_service.py
-│   └── leave_service.py
-│
-├── tools/
-│   └── email_tool.py        # SMTP email sender
-│
-├── llm_client.py            # Groq LLM wrapper
-├── prompts.py               # System prompt (Echo persona)
-│
-├── frontend/
-│   └── src/
-│       ├── App.js
-│       ├── api.js
-│       └── components/
-│           ├── Sidebar.jsx
-│           └── ChatBubble.jsx
-│
-├── .env.example
-├── .gitignore
-├── requirements.txt
-└── README.md
-
-````
-
----
 
 ## ⚙️ How to Run Locally
 
@@ -213,6 +173,7 @@ EMAIL_APP_PASSWORD=
 ## 👤 Author
 
 Built by **Rishi Kishore**
+
 GitHub: [https://github.com/rishixq](https://github.com/rishixq)
 
 
