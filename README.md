@@ -1,148 +1,181 @@
+
 ```md
-# Ask2Inbox — Agentic AI Assistant with Chat–Email Parity
+# 📬 **Ask2Inbox — Ask Once. Straight to Inbox.**
 
-**Ask2Inbox** is a production-grade, agentic Employee Self-Service (ESS) platform where users **ask once** and receive the **same AI-generated response** in both **chat and email**.
+**FastAPI · LangGraph · SQLAlchemy · Groq LLM · React**
 
-The system is designed around a **single LLM source of truth**, with email treated strictly as a **delivery channel**, not a formatter.
+**Ask2Inbox** is a **production-grade, agentic Employee Self-Service (ESS) platform** that allows employees to **ask questions once** and receive **identical, enterprise-ready responses** in both **chat and email**.
 
-> 🧠 Chat = Email. Always.
-
----
-
-## ✨ Key Highlights
-
-- Agentic architecture using **LangGraph**
-- Strict **chat–email parity** (same LLM output, no reformatting)
-- SQL-backed employee data access
-- Real email delivery via SMTP
-- Clean FastAPI backend + modern React frontend
-- Interview-ready, production-style design
+The system is built around a **single LLM source of truth**, ensuring **strict chat–email parity** — a critical requirement in real-world enterprise systems.
 
 ---
 
-## 🚀 What Ask2Inbox Can Do
-
-- Answer general and out-of-the-box questions professionally
-- Fetch structured employee data from SQL
-- Decide actions dynamically based on intent
-- Send identical responses to chat **and** inbox on request
-- Notify users in UI when an email copy is sent
+## 🌍 Deployed Site
+👉 *(https://ask2inbox.yourdomain.com)*
 
 ---
 
-## 🧠 High-Level Architecture
+## 🎥 Demo Video
 
-```
-
-User (Chat UI)
-↓
-FastAPI (/chat)
-↓
-Agent Runner (agent.py)
-↓
-LangGraph State Machine
-├── Chat Node (LLM only)
-├── DB Node (SQL + LLM)
-└── Leave Node (DB write)
-↓
-Single LLM Output
-├── Displayed in Chat
-└── Sent via Email (if requested)
-
-```
-
----
-
-## 🧩 Core Design Principle
-
-### 🔒 Single Source of Truth
-
-- The **LLM output** is generated **once**
-- That same string is:
-  - Rendered in chat
-  - Sent as a plain-text email
-- No secondary formatting
-- No email-specific templates
-
-This avoids inconsistencies and mirrors **real enterprise systems**.
-
-## 🛠️ Tech Stack
-
-### Backend
-- **FastAPI** — API layer
-- **LangGraph** — agent orchestration
-- **LangChain (Groq)** — LLM integration
-- **SQLAlchemy** — database ORM
-- **PostgreSQL** — employee data
-- **SMTP (Gmail App Password)** — email delivery
-
-### Frontend
-- **React**
-- Clean chat UI
-- Branded Ask2Inbox theme
-- UI-level email delivery notifications
-
----
-
-## 🧪 Example Requests
-
-### Chat only
-```
-
-Show my salary details
-
-```
-
-### Chat + Email
-```
-
-Email my assets
-
-```
-
-Result:
-- Structured response shown in chat
-- Same response delivered to inbox
-- UI shows: “A copy has been sent to your registered email.”
+▶️ **Watch the full working demo:**  
+👉 *(https://youtu.be/your-demo-link)*
 
 ---
 
 ## 📸 Screenshots
 
-/screenshots
-├── login.png
-├── chat.png
-├── email.png
+<img width="1900" alt="Ask2Inbox Login" src="screenshots/login.png" />
+<img width="1900" alt="Ask2Inbox Chat" src="screenshots/chat.png" />
+<img width="1900" alt="Ask2Inbox Email" src="screenshots/email.png" />
 
-````
-
-## 🎥 Demo Video
-
-```md
-▶️ Demo Video: https://youtu.be/your-demo-link
-```
 
 ---
 
-## 🌍 Deployed Site
+## ✨ Key Capabilities
 
-```md
-🔗 Live Demo: https://ask2inbox.yourdomain.com
+### 🧠 Intelligent Agentic Chat
+- Handles **general and out-of-the-box questions**
+- Maintains a **professional, modern enterprise tone**
+- Responds safely using authenticated employee context
+
+---
+
+### 🗄️ SQL-Backed Employee Queries
+- Reads structured employee data from SQL:
+  - Profile
+  - Salary
+  - Leave balance & history
+  - Skills
+  - Assets
+  - Goals
+- No ORM objects leak beyond the service layer
+- JSON-safe, serialized data only
+
+---
+
+### 📧 Chat–Email Parity (Core Feature)
+- Email responses are generated **entirely by the LLM**
+- **Same output** is:
+  - Displayed in chat
+  - Sent via email
+- No formatting layers
+- No template duplication
+- Email is treated as a **delivery channel**, not a renderer
+
+---
+
+### 🔁 Agentic Decision-Making
+The system automatically determines:
+- Chat-only response
+- Database read
+- Database read + email
+- Database write (leave application)
+
+This mirrors **real internal enterprise assistants**, not demo bots.
+
+---
+
+## 🧠 How Ask2Inbox Works (End-to-End)
+
 ```
+
+Employee Login
+↓
+FastAPI (/login)
+↓
+Employee Authenticated (employee_id resolved)
+↓
+Chat Request (/chat)
+↓
+Agent Runner (agent.py)
+↓
+LangGraph State Machine
+├── Intent Detection
+├── Chat Node (LLM only)
+├── DB Node (SQL + LLM)
+├── Email Node (SMTP delivery)
+└── Leave Node (DB write)
+↓
+Single LLM Response
+├── Returned to Chat UI
+└── Sent to Email (if requested)
+
+```
+
+## 🧱 Tech Stack
+
+### Backend
+- Python
+- FastAPI
+- LangGraph
+- SQLAlchemy
+- PostgreSQL
+- SMTP (Email delivery)
+
+### LLM
+- Groq
+- Model: `llama-3.1-8b-instant`
+
+### Frontend
+- React
+- Tailwind CSS
+- Custom chat UI
+- Branded Ask2Inbox theme
+- UI-level email delivery notifications
+
+---
+
+## 📁 Project Structure
+
+```
+
+Ask2Inbox/
+│
+├── main.py                  # FastAPI app
+├── agent.py                 # Agent runner
+├── graph.py                 # LangGraph state machine
+├── agent_state.py           # AgentState dataclass
+├── intent_detector.py       # Intent classification
+│
+├── database.py              # SQLAlchemy engine/session
+├── models.py                # Employee-related models
+├── services/
+│   ├── employee_service.py
+│   └── leave_service.py
+│
+├── tools/
+│   └── email_tool.py        # SMTP email sender
+│
+├── llm_client.py            # Groq LLM wrapper
+├── prompts.py               # System prompt (Echo persona)
+│
+├── frontend/
+│   └── src/
+│       ├── App.js
+│       ├── api.js
+│       └── components/
+│           ├── Sidebar.jsx
+│           └── ChatBubble.jsx
+│
+├── .env.example
+├── .gitignore
+├── requirements.txt
+└── README.md
+
+````
 
 ---
 
 ## ⚙️ How to Run Locally
 
 ### Backend
-
 ```bash
 # Activate virtual environment
 .venv\Scripts\activate
 
-# Run FastAPI server
+# Run backend
 uvicorn main:app --reload
-```
+````
 
 ### Frontend
 
@@ -166,23 +199,22 @@ EMAIL_APP_PASSWORD=
 
 ---
 
-## 🎯 Why This Project Matters
+## 🎯 Why Ask2Inbox Matters
 
-* Demonstrates **true agentic design**, not prompt hacks
-* Clean separation of concerns:
-
-  * API
-  * Agent
-  * Graph
-  * Tools
-* Real side-effects (SQL + Email)
-* Strong focus on **correctness, parity, and UX**
-* Easy to explain in interviews
+* Demonstrates **true agentic architecture**
+* Enforces **chat–email parity**, a real enterprise constraint
+* Clean separation of concerns
+* Real side effects (SQL + Email)
+* Fully explainable in interviews
+* Production-style system, not a demo chatbot
 
 ---
 
 ## 👤 Author
 
-**Rishi Kishore**
+Built by **Rishi Kishore**
+GitHub: [https://github.com/rishixq](https://github.com/rishixq)
 
-> Ask once. Straight to inbox.
+
+> **Ask once. Straight to inbox.**
+
