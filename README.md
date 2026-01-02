@@ -24,7 +24,7 @@ The system is built around a **single LLM source of truth**, ensuring **strict c
 
 ## 📸 Screenshots
 
-<img width="1869" height="899" alt="Screenshot 2026-01-01 122047" src="https://github.com/user-attachments/assets/f9ba9e97-59c1-437c-a67f-19c84ded3e72" />
+![Ask2Inbox Chat](screenshots/chat.png)
 
 
 ---
