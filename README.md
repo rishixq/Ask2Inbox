@@ -18,16 +18,13 @@ The system is built around a **single LLM source of truth**, ensuring **strict c
 ## 🎥 Demo Video
 
 ▶️ **Watch the full working demo:**  
-👉 *(https://youtu.be/your-demo-link)*
+👉 *(https://youtu.be/ojo1_EWkHsU)*
 
 ---
 
 ## 📸 Screenshots
 
-<img width="1900" alt="Ask2Inbox Login" src="screenshots/login.png" />
-<img width="1900" alt="Ask2Inbox Chat" src="screenshots/chat.png" />
-<img width="1900" alt="Ask2Inbox Email" src="screenshots/email.png" />
-
+<img width="1869" height="899" alt="Screenshot 2026-01-01 122047" src="https://github.com/user-attachments/assets/2b3dfe0d-63f1-4317-bcf4-479b2ec087df" />
 
 ---
 
