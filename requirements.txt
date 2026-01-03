@@ -18,3 +18,5 @@ groq
 # Email (built-in, no install needed)
 # smtplib (standard library)
 # email (standard library)
+langchain-core
+langchain-groq
