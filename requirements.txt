@@ -1,6 +1,20 @@
+# Core API
 fastapi
 uvicorn
+
+# Environment variables
 python-dotenv
 
+# Database
 sqlalchemy==2.0.25
 psycopg2-binary==2.9.9
+
+# Agent orchestration
+langgraph
+
+# LLM
+groq
+
+# Email (built-in, no install needed)
+# smtplib (standard library)
+# email (standard library)
