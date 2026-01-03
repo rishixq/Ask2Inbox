@@ -10,7 +10,7 @@ Built with **clean architecture**, **deployment-ready practices**, and **real-wo
 
 ## 🌍 Deployed Site
 
-👉 *([https://ask2inbox.yourdomain.com](https://ask2inbox.yourdomain.com))*
+👉 *(https://ask2-inbox.vercel.app/)*
 
 ---
 
