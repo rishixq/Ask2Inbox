@@ -11,6 +11,7 @@ Built with **clean architecture**, **deployment-ready practices**, and **real-wo
 ## 🌍 Deployed Site
 
 👉 *(https://ask2-inbox.vercel.app/)*
+Note: SMTP is blocked on most PaaS platforms; production systems use transactional email APIs. So, my email feature won't work in the deployed site but does work in live browser.
 
 ---
 
